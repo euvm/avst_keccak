@@ -12,7 +12,7 @@ run: avst_keccak.vvp avst_keccak.vpi
 	vvp -M. -mavst_keccak avst_keccak.vvp \
 	+UVM_TESTNAME=avst_keccak.random_test +UVM_VERBOSITY=DEBUG # +UVM_OBJECTION_TRACE
 
-avst_keccak.vvp: test_avst_keccak.v verilog/*.v
+avst_keccak.vvp: test_avst_keccak.v ../rtl/*.v
 	iverilog -o $@ $^
 
 avst_keccak.vpi: avst_keccak.d c-model/libsha3.a
